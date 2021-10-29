@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 # Attach packages
 library(tidyverse)
 library(lubridate)
+library(kableExtra)
 ```
 
 ## BEFORE YOU START: Save a renamed copy of this .Rmd
@@ -253,6 +254,10 @@ gasol_hookshots <- lakers %>%
 
 gasol_hookshots_recorded <- gasol_hookshots %>% 
   count(month)
+
+gasol_hookshots_recorded %>% 
+  kable(col.names = c("Month", "Number of Hookshot attempts"), caption = "Paul Gasol's attempted hookshots for the 2008 - 2009 season") %>% 
+  kable_styling(full_width = FALSE)
 ```
 
 ### 4. `dplyr::case_when()`
